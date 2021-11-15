@@ -1,12 +1,12 @@
 import unittest
 from unittest.mock import patch, Mock
 
-from resources.student import Student
+from code.resources.bigbang import BigBang
 
 
 class TestBigBangResource(unittest.TestCase):
 
-    @patch.object(Student, 'post')
+    @patch.object(BigBang, 'post')
     def test_post_method(self, mock_post):
         mockresponse = Mock(
                     headers={'Content-Type' :'application/json'},
@@ -36,7 +36,7 @@ class TestBigBangResource(unittest.TestCase):
                     ]
                 )
         mock_post.return_value = mockresponse
-        student = Student().post()
+        student = BigBang().post()
         expected = [
                         "1",
                         "2",
